@@ -1,5 +1,4 @@
-## Hi there 👋
-
+Repository for my portfolio website.
 <!--
 **bharathbhaskr/bharathbhaskr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
