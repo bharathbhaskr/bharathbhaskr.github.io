@@ -1,0 +1,897 @@
+{% extends 'main_app/base.html' %}
+
+{% load static %}
+{% load read-time %}
+{% load skill_tag %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<style>
+  #hero,
+  #about {
+    background-image: url('{% static "/images/background.svg" %}') !important;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #hero,
+  #about {
+    background-image: url('{% static "/images/background.svg" %}') !important;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  I'll create a more realistic tennis racquet SVG that will be positioned to the side of your "About Me" section. Here's an improved version:
+htmlCopy<!-- Add this CSS to your existing style tag -->
+/* Tennis Racquet Animation - Improved */
+.tennis-racquet-animation {
+    position: absolute;
+    top: 150px;
+    left: 5%;  /* Positioning to the left side */
+    z-index: 1;
+    transform: rotate(-15deg);  /* Slight tilt for better appearance */
+  }
+
+  .tennis-racquet {
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(3px 5px 4px rgba(0, 0, 0, 0.4));
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Tennis Ball Animation */
+  .tennis-ball-animation {
+    position: absolute;
+    top: 100px;
+    left: 20%;
+    z-index: 1;
+  }
+
+  .tennis-ball {
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.3));
+    width: 40px;
+    height: 40px;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(5deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+  }
+
+  /* Make animation responsive */
+  @media (max-width: 768px) {
+    .tennis-racquet-animation {
+      top: 100px;
+      left: 3%;
+    }
+    
+    .tennis-racquet {
+      width: 70px;
+      height: 70px;
+    }
+
+    .tennis-ball-animation {
+      top: 80px;
+      left: 15%;
+    }
+    
+    .tennis-ball {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+</style>
+
+
+
+
+<!-- ###################################################### Hero Section ################################################################ -->
+<section id="hero" style="margin: 0 !important;" class="about full-screen d-lg-flex justify-content-center ">
+
+  <div class="container-fluid " style="width: 92%;">
+
+    <br>
+
+    <div class="row">
+
+      <div class="col-md-8 col-12 ">
+
+        <div class="about-text">
+
+          {% for text in texts %}
+          <p style="color:#fffef0be;font-size: 0.9rem !important;margin:0cm"> {{text.greetings_text}} </p>
+          {% endfor %}
+          <h3 id="hero_name"> Bharath Bhaskar</h3>
+
+
+          <h2 id="hero_intro">
+            I'm a <span id="animation" style="color:#ffec42 ;"> </span>
+          </h2>
+
+
+
+          {% for text in texts %}
+          <p id="hero_slogan" style="color: rgb(207, 207, 207);font-size: 1.08rem;"> {{text.intro_text}}</p>
+          {% endfor %}
+
+
+          <div class="d-none d-sm-block">
+
+            <div class="mt-4 d-flex ">
+              <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;"
+                href="#project" class="btn mr-lg-2 btn-warning btn-md  ">&nbsp; &nbsp; My Work &nbsp;&nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                  class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+              </a>
+              &nbsp;&nbsp;
+              <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important" href="#contact"
+                class="btn btn-outline-secondary btn-md"> Get in touch </a>
+            </div>
+
+          </div>
+
+          <div class="d-block d-sm-none">
+            <div style="margin-bottom: 10px;" class="row">
+              <a style="color: #232323 !important ;background-color: #fde92f !important;font-size: 1.1rem;width: 100%;border-radius: 10px !important;"
+                href="#project" class="btn mr-lg-2 btn-warning btn-md  ">&nbsp; &nbsp; My Work &nbsp;&nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                  class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="row">
+              <a style="font-size: 1.1rem;color:rgb(211, 211, 211) !important;width: 100%;border-radius: 10px !important;"
+                href="#contact" class="btn btn-outline-secondary btn-md"> Get in touch </a>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="col-md-4 d-none d-md-block">
+
+        <div>
+          <img style="border: 2px #dadada solid; width:67% ;margin-left:80px;box-shadow: 10px 5px 0px #ffffffef;"
+            height="30" src="{% static 'images/profile.jpg' %}" class="img-fluid hero-image" alt="svg image">
+        </div>
+
+      </div>
+
+    </div>
+    <div id="scroller" style="margin-bottom: 0cm;" class="row">
+      <div style="margin-bottom: 0cm" class="col">
+        <center>
+          <a href="#about">
+            <img style="height: 50px;margin-top: 40px;" src="{% static 'images/scroll3.gif' %}" alt="">
+          </a>
+
+        </center>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ###################################################### MORE ABOUT ME ################################################################ -->
+<section style="margin: 0cm !important;" class="more-about-me " id="about">
+  <div id="about-container" class="container-fluid" style="padding-top: 1cm; width:90%; ">
+    <div style="position: relative;">
+      <span id="tag1" class="about-tags"> <span class="text-warning"></span>Tennis </span>
+      <span id="tag2" class="about-tags"> <span class="text-warning">#</span>DevOps </span>
+      <span id="tag3" class="about-tags"> <span class="text-warning">#</span>Data</span>
+      <span id="tag4" class="about-tags"> <span class="text-warning">#</span>web_design</span>
+
+      <div class="justify-content-center d-flex">
+        <div class="col-md-8 col-12">
+
+          <div class="d-flex justify-content-center">
+            <div>
+              <center>
+                <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">About me
+                </h2>
+                <div id="sections" style="width:100px;overflow:hidden">
+                  <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+                </div>
+                <p
+                  style="margin-left: 5px;color:rgb(226, 226, 226);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">
+                  A closer look at my journey in tech
+                </p>
+              </center>
+            </div>
+          </div>
+
+          <div class="d-block d-md-none">
+            <center>
+              <br>
+              <div>
+                <img style="border: 2px #dadada solid; width:67% ;box-shadow: 10px 5px 0px #ffffffef;" height="30"
+                  src="{% static 'images/profile.jpg' %}" class="img-fluid hero-image" alt="svg image">
+              </div>
+            </center>
+          </div>
+
+          <div
+            style="background-color: #2c484d  !important;font-size:1.1rem;color:#b7b7b7;border:none;padding: 2rem;margin-top: 1.5rem;"
+            class="card card-body about-card">
+
+            <div>
+              {% for text in texts %}
+              <p id="about-text">
+                {{text.about_text}}
+              </p>
+              {% endfor %}
+            </div>
+
+          </div>
+<!-- start of tennis -->
+      <!-- Add this HTML where you want the tennis racquet to appear -->
+      <div class="tennis-racquet-animation">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100" height="100" class="tennis-racquet">
+          <!-- Racquet handle -->
+          <rect x="240" y="350" width="32" height="150" rx="10" fill="#8B5A2B" />
+          
+          <!-- Racquet grip wrapping -->
+          <rect x="240" y="360" width="32" height="5" fill="#333" />
+          <rect x="240" y="375" width="32" height="5" fill="#333" />
+          <rect x="240" y="390" width="32" height="5" fill="#333" />
+          <rect x="240" y="405" width="32" height="5" fill="#333" />
+          <rect x="240" y="420" width="32" height="5" fill="#333" />
+          <rect x="240" y="435" width="32" height="5" fill="#333" />
+          <rect x="240" y="450" width="32" height="5" fill="#333" />
+          <rect x="240" y="465" width="32" height="5" fill="#333" />
+          
+          <!-- Racquet head outer frame -->
+          <ellipse cx="256" cy="180" rx="140" ry="160" fill="#ffec42" />
+          <ellipse cx="256" cy="180" rx="120" ry="140" fill="none" stroke="#333" stroke-width="4" />
+          
+          <!-- Racquet strings - horizontal -->
+          <line x1="160" y1="120" x2="352" y2="120" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="160" y1="140" x2="352" y2="140" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="150" y1="160" x2="362" y2="160" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="145" y1="180" x2="367" y2="180" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="150" y1="200" x2="362" y2="200" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="160" y1="220" x2="352" y2="220" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="170" y1="240" x2="342" y2="240" stroke="#f7f7f7" stroke-width="2" />
+          
+          <!-- Racquet strings - vertical -->
+          <line x1="190" y1="100" x2="190" y2="260" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="220" y1="80" x2="220" y2="280" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="256" y1="70" x2="256" y2="290" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="292" y1="80" x2="292" y2="280" stroke="#f7f7f7" stroke-width="2" />
+          <line x1="322" y1="100" x2="322" y2="260" stroke="#f7f7f7" stroke-width="2" />
+          
+          <!-- Racquet head inner frame -->
+          <ellipse cx="256" cy="180" rx="110" ry="130" fill="none" stroke="#ffec42" stroke-width="10" />
+          
+          <!-- Connection between handle and head -->
+          <path d="M256,310 Q256,330 256,350" stroke="#8B5A2B" stroke-width="32" fill="none" />
+        </svg>
+      </div>
+      
+      <!-- Add this HTML for the tennis ball -->
+      <div class="tennis-ball-animation">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" class="tennis-ball">
+          <!-- Tennis ball -->
+          <circle cx="50" cy="50" r="48" fill="#ffec42" />
+          
+          <!-- Tennis ball texture/seams -->
+          <path d="M50,2 C70,2 85,20 90,40 C60,45 40,45 10,40 C15,20 30,2 50,2 Z" fill="#FFFDD0" opacity="0.4" />
+          <path d="M50,98 C30,98 15,80 10,60 C40,55 60,55 90,60 C85,80 70,98 50,98 Z" fill="#FFFDD0" opacity="0.4" />
+          
+          <!-- Tennis ball curve line -->
+          <path d="M5,50 C5,30 25,10 50,10 C75,10 95,30 95,50 C95,70 75,90 50,90 C25,90 5,70 5,50" fill="none" stroke="#FFFDD0" stroke-width="2" stroke-dasharray="5,5" />
+          <path d="M50,5 C70,5 90,25 90,50 C90,75 70,95 50,95 C30,95 10,75 10,50 C10,25 30,5 50,5" fill="none" stroke="#FFFDD0" stroke-width="2" stroke-dasharray="5,5" />
+        </svg>
+      </div>
+            <!-- end of tennis -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ###################################################### RESUME ######################################################################## -->
+<section class="resume d-lg-flex py-5 justify-content-center align-items-center" id="resume">
+  <div class="container">
+    <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Resume</h2>
+    <div style="width:100px;overflow:hidden">
+      <hr style="color: #ffec42;border: 2px #ffec42 solid; opacity: 1;margin:5px">
+    </div>
+    
+    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">
+      <!-- My experience and qualifications -->
+    </p>
+    
+    <br><br>
+    
+    <div class="row">
+      <div class="col-md-8">
+        <p style="color: rgb(186, 186, 186); font-size: 1.1rem;">
+          My experience spans software development, data engineering, and cloud technologies. 
+          I have a strong background in building scalable data pipelines, developing cloud-native applications,
+          and implementing robust DevOps practices.
+        </p>
+      </div>
+      
+      <div class="col-md-4 text-center">
+        {% if resume %}
+          {% for res in resume|slice:":1" %}
+            <a href="{{ res.resume_file.url }}" class="btn" style="background-color: #ffec42; color: #232323; font-size: 1.1rem; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 10px;" download>
+              Download Resume
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16" style="margin-left: 8px;">
+                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+            </a>
+          {% endfor %}
+        {% else %}
+          <p style="color: rgb(186, 186, 186);">Resume will be available soon.</p>
+        {% endif %}
+      </div>
+    </div>
+    
+    <!-- <div class="row mt-5">
+      <div class="col-lg-6 col-12">
+        <div class="timeline">
+          <div class="timeline-wrapper">
+            <div class="timeline-yr">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#ffec42" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                  <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
+                  <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
+                </svg>
+              </span>
+            </div> -->
+            <!-- <div class="timeline-info">
+              <h3><span>Education</span></h3>
+              <p style="color: rgb(186, 186, 186); margin-bottom: 0.5rem;">
+                <strong>Northeastern University</strong><br>
+                Master of Science in Information Systems<br>
+                <small>Expected April 2025</small>
+              </p>
+              <p style="color: rgb(186, 186, 186); margin-bottom: 0cm;">
+                <strong>PES University</strong><br>
+                Bachelor of Technology in Electronics and Communications Engineering<br>
+                <small>August 2021</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6 col-12">
+        <div class="timeline">
+          <div class="timeline-wrapper">
+            <div class="timeline-yr">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#ffec42" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
+                  <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
+                  <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="timeline-info">
+              <h3><span>Experience</span></h3>
+              <p style="color: rgb(186, 186, 186); margin-bottom: 0.5rem;">
+                <strong>Software Development Engineer, Module Lead</strong><br>
+                Mphasis Ltd. | Bangalore, India<br>
+                <small>June 2021 - May 2023</small>
+              </p>
+              <p style="color: rgb(186, 186, 186); margin-bottom: 0cm;">
+                <strong>Research Intern</strong><br>
+                Electronics and Radar Development Establishment | Bangalore, India<br>
+                <small>September 2020 - March 2021</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+<!-- ###################################################### SKILLS ######################################################################## -->
+<section class="resume d-lg-flex py-5 justify-content-center align-items-center" id="skills">
+  <div class="container">
+
+    <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Expertise</h2>
+    <div style="width:100px;overflow:hidden">
+      <hr style="color: #ffec42;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+
+    </div>
+
+    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">A list
+      of my core skills & tools</p>
+
+
+
+    <br><br>
+
+    <div class="row">
+
+      <div class="col-lg-6 col-12">
+        <div class="timeline">
+          {% for skill in skills %}
+          {% if forloop.counter|modulo:2 == 1 %}
+          <div class="timeline-wrapper">
+            <div class="timeline-yr">
+              <span><img height="25" src="{{skill.thumbnail.url}}" alt="" class=""></span>
+            </div>
+            <div class="timeline-info">
+              <h3><span>{{skill.name}}</h3>
+              <p id="less{{skill.id}}" style="color: rgb(186, 186, 186);margin-bottom: 0cm;">
+                {{skill.description|truncatechars:120}}</p>
+              <p id="more{{skill.id}}" style="color: rgb(186, 186, 186);display: none;margin-bottom: 0cm;">
+                {{skill.description}}</p>
+
+              <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')"
+                style="display: none;color: #ffffff;margin-bottom: 0.5rem;margin-top:0.5rem;font-size: 0.9rem;cursor: pointer;text-decoration:underline !important">
+                view less <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                  class="bi bi-arrow-up" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                </svg>
+
+              </a>
+
+              <a id="read_more_skill{{skill.id}}"
+                style="color: rgba(134, 134, 255, 0.945);font-size: 0.85rem;cursor: pointer;margin-bottom: 0.5rem;margin-top:0.5rem;"
+                onclick="skillsFunction('{{skill.id}}')">
+                view more <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                  class="bi bi-arrow-down" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                </svg>
+
+              </a>
+
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+
+      <div class="col-lg-6 col-12">
+        <div class="timeline">
+          {% for skill in skills %}
+          {% if forloop.counter|modulo:2 == 0 %}
+          <div class="timeline-wrapper">
+            <div class="timeline-yr">
+              <span><img height="25" src="{{skill.thumbnail.url}}" alt="" class=""></span>
+            </div>
+            <div class="timeline-info">
+              <h3><span>{{skill.name}}</h3>
+              <p id="less{{skill.id}}" style="color: rgb(186, 186, 186);margin-bottom: 0cm;">
+                {{skill.description|truncatechars:120}}</p>
+              <p id="more{{skill.id}}" style="color: rgb(186, 186, 186);display: none;margin-bottom: 0cm;">
+                {{skill.description}}</p>
+
+              <a id="read_less_skill{{skill.id}}" onclick="skillsFunction('{{skill.id}}')"
+                style="display: none;margin-bottom: 0.5rem;margin-top:0.5rem;text-decoration:underline !important;color:white;font-size:0.9rem;cursor:pointer">
+                view less <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                  class="bi bi-arrow-up" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                </svg>
+
+              </a>
+
+              <a id="read_more_skill{{skill.id}}"
+                style="color: rgba(134, 134, 255, 0.945);font-size: 0.9rem;cursor: pointer;margin-bottom: 0.5rem;margin-top:0.5rem;"
+                onclick="skillsFunction('{{skill.id}}')">
+                view more <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                  class="bi bi-arrow-down" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                </svg>
+
+              </a>
+
+
+            </div>
+
+          </div>
+
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+</section>
+
+<!-- ###################################################### PROJECTS ######################################################################## -->
+
+<section class="project py-5" id="project">
+  <div class="container-fluid project-container">
+    <div>
+      <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">Projects </h2>
+      <div style="width:100px;overflow:hidden">
+        <hr style="color: #ffec42 ;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+
+      </div>
+
+      <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Some
+        of my past projects</p>
+
+      <br><br>
+
+      <div class="row">
+        {% for project in projects %}
+        <div class="col-md-6">
+          <div class="img-wrapper">
+            <img style="border-radius: 10px ;" src="{{project.thumbnail.url}}" class="img-fluid"
+              alt="project image | cape town freelancer">
+          </div>
+          <div class="justify-content-center d-flex" style="position: relative;top: -20px;">
+            <div class="card" style="width:93% !important; background-color: #29494e ; border-radius: 4px;border:none">
+              <div style="min-height: 200px;overflow: hidden;"><br>
+                <a style="color:rgb(248, 248, 248);margin-left: 20px;margin-right: 20px;font-size: 1.6rem;font-weight: 600;"
+                  href="{{project.live}}">
+                  {{project.title}}
+                </a>
+
+                <div style="width:25%;overflow:hidden;margin-left: 20px;margin-bottom: 10px ; ">
+                  <hr style="color: #ffef64 ;border: 2px #fff06c solid ; opacity: 1;margin:5px ">
+                </div>
+
+
+                <div class="d-flex tags" style="margin-left: 20px;margin-bottom: 6px; flex-wrap: wrap; ">
+                  {% for tag in project.tags.all %}
+                  <div style="margin:0">
+                    <div style="background-color: #8b8b8b53 ; border-radius: 8px;margin-right: 5px;">
+                      <p class="d-flex justify-content-center"
+                        style="margin-bottom: 5px;padding:5px 8px;font-size: 0.75rem; color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">
+                        {{tag.name}}</p>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+
+
+                <p id="less-description{{project.id}}"
+                  style="margin-left: 20px;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;"
+                  class="lead">
+                  {{project.description|safe|truncatechars:"150"}}
+                </p>
+
+                <div id="more-description{{project.id}}"
+                  style=" display: none !important; margin-left: 20px !important;margin-right: 20px;margin-bottom: 8px;color:rgb(206, 206, 206); font-size: 1rem;"
+                  class="lead">
+                  {{project.description|safe}}
+                  <span>
+                    {% if project.demoUsername != None %}
+                    <div style="margin-bottom: 8px;color:rgb(206, 206, 206);margin-bottom: 0.95rem;font-size: 0.8rem;">
+                      <hr>
+                      <p style="margin-bottom: 0; color:pink;font-style: italic; ">username <span style="color:white">:
+                          {{project.demoUsername}}</span>
+                      </p>
+                      <p style="margin-top: 0;color:pink;font-style: italic;">password <span style="color:white">:
+                          {{project.demoPassword}}</span></p>
+                    </div>
+                    {% endif %}
+                  </span>
+                </div>
+
+
+              </div>
+
+              <div class="d-flex" style="margin-top: 0cm;width: 100% !important;">
+                <button id="less_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
+                  style="border-width: 1px !important;display: none; margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px;background-color: #8b8b8b53;border: none"
+                  class="btn-outline-light expand_btn rounded ">
+                  <small> Read Less </small>
+                </button>
+
+                <button id="more_btn{{project.id}}" onclick="myFunction('{{project.id}}')"
+                  style="margin-left: 20px;margin-bottom: 8px;width:152px;height: 30px; border-width: 1px !important; background-color: #8b8b8b53;border: none;color: #ffec42ec;"
+                  class="btn-outline-warning expand_btn rounded ">
+                  <small> Read More </small>
+                </button>
+
+                <div class="d-flex justify-content-end" style="width: 100% !important; padding-bottom: 20px;">
+
+
+                  <div class="col-1">
+                    <div class="rounded-circle" style="background-color: #3c45ff17;">
+                      <a style="color:#cecece" href="{{project.github}}">
+                        <div type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                          title="View Code on <b>Github</b>">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                            class="bi bi-github " viewBox="0 0 16 16">
+                            <path
+                              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="col-1" style="margin-right:40px">
+                    <div class="rounded-circle" style="background-color: rgba(186, 251, 182, 0.15);">
+
+                      <a style="color: #cecece;font-weight:700;text-decoration: none;" href="{{project.live}}">
+                        <div type="button" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true"
+                          title="View Live Website ">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                            <path fill-rule="evenodd"
+                              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                          </svg>
+                        </div>
+                      </a>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <div class="container-fluid" style="margin-top: 30px;">
+        <a href="{% url 'projects_app:all_projects' %}" style="color:#141414 !important;background-color:#fff066 "
+          class="btn btn-warning ">See More Projects
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ###################################################### BLOG ######################################################################## -->
+<!-- 
+<section class="py-5" id="blog">
+  <div class="container">
+    <h2 id="sections" style="margin-left: 5px;color: white;margin-top: 0cm;margin-bottom: 0cm;">My Blog </h2>
+    <div style="width:100px;overflow:hidden">
+      <hr style="color: #ffec42;border: 2px #ffec42 solid ; opacity: 1;margin:5px ">
+
+    </div>
+
+
+    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;"> Some
+      articles from my tech blog </p>
+
+  </div>
+
+  <br><br>
+
+
+  <div class="container-fluid blog-container">
+    <div class="row d-flex justify-content-center">
+      {% for article in articles %}
+      <div class=" col-12 col-md-10 col-lg-9">
+        {% if forloop.counter == 1 %}
+        <div class="d-flex"
+          style="border-top:1px  solid rgba(200, 200, 200, 0.126);border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
+          {% else %}
+          <div class="d-flex" style="border-bottom:1px  solid rgba(200, 200, 200, 0.126);">
+            {% endif %}
+
+            <div class="blog-img" style="margin: 20px;">
+              <img height="150" src="{{article.thumbnail.url}}" alt="">
+            </div>
+            <div class="">
+              <a href="{% url 'blog_app:article' article.slug %}" class="article-link">
+                <h3 class="blog-title" style="margin-left: 2px;margin-top:10px;color:white">{{article.title}}</h3>
+              </a>
+              <p style="margin-left: 2px;margin-right: 20px;margin-bottom: 8px;color:rgb(225, 225, 225); font-size: 1.1rem;"
+                class="blog-subtitle">
+                {{article.subtitle|truncatechars:160}}
+              </p>
+
+
+              <div class="d-flex">
+                {% for tag in article.tags.all %}
+                <div>
+                  <div style="background-color: #8b8b8b53 ; border-radius: 8px;">
+                    <p class="d-flex justify-content-center"
+                      style="padding:5px 8px;font-size: 0.85rem;color: {% cycle '#ffb43c' '#ff8de8' '#9eaeff' '#dc97ff' '#94ffb4' '#b0f5ff' '#ffa8ad' %};">
+                      {{tag.name}}</p>
+                  </div>
+                </div> &nbsp;&nbsp;
+                {% endfor %}
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <p style="font-size: 0.7rem;color:rgb(206, 206, 206);margin-left: 2px;margin-top: 3px;">
+                    {{article.date_posted|date:" d M Y"}} <span style="font-weight:700;font-size:larger"> &centerdot;
+                    </span> {{article.body.html|readtime}}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <div class="container" style="margin-top: 30px;">
+        <a href="{% url 'blog_app:all_articles' %}" style="color:#141414 !important;background-color:#fff066 "
+          class="btn btn-warning">See More Articles
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-arrow-right"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+</section> -->
+
+<!-- ###################################################### CONTACT ######################################################################## -->
+<section class="contact py-5" id="contact">
+  <div class="container">
+    <h2 id="sections" style="margin-left: 5px; margin-top: 0cm;margin-bottom: 0cm;">Contact me</h2>
+    <div style="width:100px;overflow:hidden">
+      <hr style="color: #ffec42  ;border: 2px #ffec42  solid ; opacity: 1;margin:5px ">
+    </div>
+
+    <p style="margin-left: 5px;color:rgb(215, 215, 215);margin-top: 0cm;margin-bottom: 3px;font-size:1.1rem;">Connect
+      with me on social media</p>
+
+  </div>
+
+  <br><br>
+  <div class="container-fluid col-11 col-md-10">
+    <div class="row">
+      <div class="col-lg-4 mr-lg-5 col-12">
+        <h1> Find Me On Social Media</h1>
+
+        <div class="row" style="border-top:#535563 1px solid; padding-top:20px">
+          <a style="color:rgba(156, 203, 250, 0.315)" href="https://www.linkedin.com/in/bharathbhaskar99/" class="col-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-linkedin"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+            </svg>
+          </a>
+          <!-- <a style="color:rgba(156, 203, 250, 0.315)" href="" class="col-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-twitter"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+            </svg>
+          </a> -->
+          <a style="color:rgba(156, 203, 250, 0.315)" href="https://github.com/bharathbhaskr" class="col-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-github"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+          </a>
+          <a style="color:rgba(156, 203, 250, 0.315)" href="https://wa.me/18577069370" class="col-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-whatsapp"
+              viewBox="0 0 16 16">
+              <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+          </a>
+        </div>
+
+
+        <br>
+      </div>
+
+      <div class="col-lg-7 col-12">
+        <center>
+          {% if messages %}
+          <ul style="background-color: rgb(254, 201, 201);margin-bottom: 2rem;" class="messages card card-body">
+            {% for message in messages %}
+            <li style="color:rgb(84, 84, 84);font-weight: 600;margin:0cm !important;" class="{{message.tags}}">
+              {{message}}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </center>
+
+        <div class="contact-form card card-body "
+          style="background-color:#00000fc7;border: 1px solid #fffb0036 !important;">
+
+
+          <form class="form" action="{% url 'main_app:sendEmail' %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <input type="text" class="form-control" name="name" placeholder="Your Name" id="name">
+              </div>
+
+              <div class="col-lg-6 col-12">
+                <input type="email" class="form-control" name="email" placeholder="Email" id="email">
+              </div>
+
+              <div class="col-12">
+                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
+              </div>
+
+              <div class="ml-lg-auto col-lg-5 col-12">
+                <input type="submit" class="form-control submit-btn text-dark" value="Send Email">
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<a style="color: #292929 !important;position: fixed;margin: 2rem; bottom: 0; right: 0;"
+  href="{% url 'main_app:homePage' %}">
+  <button style="height: 60px;width: 60px;background-color: #fff175;box-shadow: 0 2px 6px rgb(28, 40, 37);"
+    class="btn rounded-circle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door"
+      viewBox="0 0 16 16">
+      <path
+        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
+    </svg>
+  </button>
+</a>
+
+
+
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock content %}
