@@ -1,0 +1,128 @@
+:root {
+  --primary-color: #981ceb;
+  --secondary-color: #111111;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Structure */
+
+.card {
+  border-top: 3px solid var(--primary-color);
+}
+
+/* Links */
+
+a, a:visited, a:hover, a:active {
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+nav a, nav a:visited, nav a:hover, nav a:active,
+.btn a, .btn a:visited, .btn a:hover, .btn a:active
+ {
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+a.fab, a.fab:visited, a.fab:hover, a.fab:active {
+  border-bottom: none;
+}
+
+/* Buttons */
+
+.btn {
+  width: 100%;
+}
+
+a.btn {
+  border-color: #C2185B;
+}
+
+.btn-primary{
+  background-color: #C2185B;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #C2185B;
+}
+
+a.button.is-link {
+  background-color: var(--primary-color);
+  display: block;
+  margin-bottom: 1em;
+}
+
+.button.is-link.is-active, .button.is-link:active, a.button.is-link:hover {
+  background-color: #7e16c4;
+  border-color: transparent;
+  color: #fff;
+}
+
+/* Typography */
+
+body {
+  /* font-family: 'Merriweather', serif; */
+}
+
+h1 {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+h2 {
+  color: var(--secondary-color);
+}
+
+/* Structure */
+
+jumbotron {
+  background-color: #ffffff;
+}
+
+nav {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  height: 100px;
+}
+
+.navbar>.container, .navbar>.container-fluid {
+  display: block;
+}
+
+/* Lists */
+li {
+  padding-bottom: 10px;
+}
+
+#links {
+  max-width: 600px;
+}
+
+/* Media Queries */
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { ... }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  .btn {
+    width: 33%;
+  }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { ... }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }
