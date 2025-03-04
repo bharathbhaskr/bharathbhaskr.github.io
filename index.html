@@ -67,7 +67,84 @@
       </section>
     </section>
     <div class="animation-container">
-      <img src="assets/tennis-rally.svg" alt="Tennis rally animation" width="100%">
+      <!-- svg code -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+        <style>
+          @keyframes racquetSwing {
+            0%, 100% { transform: rotate(0deg) translateX(0); }
+            5% { transform: rotate(-20deg) translateX(0); }
+            15% { transform: rotate(25deg) translateX(20px); }
+            20% { transform: rotate(15deg) translateX(15px); }
+            40%, 60% { transform: rotate(0deg) translateX(0); }
+            65% { transform: rotate(-20deg) translateX(0); }
+            75% { transform: rotate(25deg) translateX(20px); }
+            80% { transform: rotate(15deg) translateX(15px); }
+          }
+          
+          @keyframes ballMovement {
+            0% { transform: translate(0, 0); }
+            15% { transform: translate(350px, -100px); }
+            50% { transform: translate(700px, 0); }
+            75% { transform: translate(350px, -100px); }
+            95%, 100% { transform: translate(0, 0); }
+          }
+          
+          #racquet {
+            animation: racquetSwing 4s ease-in-out infinite;
+            transform-origin: center bottom;
+          }
+          
+          #ball {
+            animation: ballMovement 4s ease-in-out infinite;
+          }
+        </style>
+        
+        <!-- Tennis racquet -->
+        <g id="racquet">
+          <!-- Racquet handle -->
+          <rect x="90" y="180" width="15" height="90" rx="5" fill="#663300" />
+          
+          <!-- Racquet frame -->
+          <ellipse cx="100" cy="130" rx="60" ry="80" fill="none" stroke="#333333" stroke-width="8" />
+          
+          <!-- Racquet strings - vertical -->
+          <line x1="65" y1="70" x2="65" y2="190" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="75" y1="65" x2="75" y2="195" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="85" y1="60" x2="85" y2="200" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="95" y1="57" x2="95" y2="203" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="105" y1="57" x2="105" y2="203" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="115" y1="60" x2="115" y2="200" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="125" y1="65" x2="125" y2="195" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="135" y1="70" x2="135" y2="190" stroke="#CCCCCC" stroke-width="1.5" />
+          
+          <!-- Racquet strings - horizontal -->
+          <line x1="50" y1="90" x2="150" y2="90" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="45" y1="110" x2="155" y2="110" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="43" y1="130" x2="157" y2="130" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="45" y1="150" x2="155" y2="150" stroke="#CCCCCC" stroke-width="1.5" />
+          <line x1="50" y1="170" x2="150" y2="170" stroke="#CCCCCC" stroke-width="1.5" />
+          
+          <!-- Racquet grip wrap -->
+          <rect x="90" y="200" width="15" height="5" fill="#333333" />
+          <rect x="90" y="210" width="15" height="5" fill="#333333" />
+          <rect x="90" y="220" width="15" height="5" fill="#333333" />
+          <rect x="90" y="230" width="15" height="5" fill="#333333" />
+          <rect x="90" y="240" width="15" height="5" fill="#333333" />
+          <rect x="90" y="250" width="15" height="5" fill="#333333" />
+        </g>
+        
+        <!-- Tennis ball -->
+        <g id="ball">
+          <circle cx="160" cy="130" r="25" fill="#C3E93D" />
+          <path d="M140 130 C140 110, 180 110, 180 130 C180 150, 140 150, 140 130" fill="none" stroke="white" stroke-width="2" />
+        </g>
+        
+        <!-- Invisible wall on right side -->
+        <rect x="790" y="0" width="10" height="300" fill="transparent" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+        <!-- All the SVG content I provided above -->
+      </svg>
     </div>
 
     <section class="columns hero-body">
