@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <style>
+    @keyframes racquetBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    @keyframes ballBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+    
+    #racquet {
+      animation: racquetBob 2s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+    
+    #ball {
+      animation: ballBob 1.5s ease-in-out infinite;
+      animation-delay: 0.2s;
+    }
+  </style>
+  
+  <!-- Tennis racquet -->
+  <g id="racquet">
+    <!-- Racquet handle -->
+    <rect x="190" y="180" width="15" height="90" rx="5" fill="#663300" />
+    
+    <!-- Racquet frame -->
+    <ellipse cx="200" cy="130" rx="60" ry="80" fill="none" stroke="#333333" stroke-width="8" />
+    
+    <!-- Racquet strings - vertical -->
+    <line x1="165" y1="70" x2="165" y2="190" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="175" y1="65" x2="175" y2="195" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="185" y1="60" x2="185" y2="200" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="195" y1="57" x2="195" y2="203" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="205" y1="57" x2="205" y2="203" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="215" y1="60" x2="215" y2="200" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="225" y1="65" x2="225" y2="195" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="235" y1="70" x2="235" y2="190" stroke="#CCCCCC" stroke-width="1.5" />
+    
+    <!-- Racquet strings - horizontal -->
+    <line x1="150" y1="90" x2="250" y2="90" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="145" y1="110" x2="255" y2="110" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="143" y1="130" x2="257" y2="130" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="145" y1="150" x2="255" y2="150" stroke="#CCCCCC" stroke-width="1.5" />
+    <line x1="150" y1="170" x2="250" y2="170" stroke="#CCCCCC" stroke-width="1.5" />
+    
+    <!-- Racquet grip wrap -->
+    <rect x="190" y="200" width="15" height="5" fill="#333333" />
+    <rect x="190" y="210" width="15" height="5" fill="#333333" />
+    <rect x="190" y="220" width="15" height="5" fill="#333333" />
+    <rect x="190" y="230" width="15" height="5" fill="#333333" />
+    <rect x="190" y="240" width="15" height="5" fill="#333333" />
+    <rect x="190" y="250" width="15" height="5" fill="#333333" />
+  </g>
+  
+  <!-- Tennis ball -->
+  <g id="ball">
+    <circle cx="290" cy="130" r="25" fill="#C3E93D" />
+    <path d="M270 130 C270 110, 310 110, 310 130 C310 150, 270 150, 270 130" fill="none" stroke="white" stroke-width="2" />
+  </g>
+</svg>
