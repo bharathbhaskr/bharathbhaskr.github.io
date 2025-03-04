@@ -7,10 +7,10 @@ html {
   scroll-behavior: smooth;
 }
 .animation-container {
-  width: 100%;
-  max-width: 400px; /* smaller max-width */
-  margin: 10px auto; /* reduced margins */
-  padding: 0; /* no padding */
+  width: 200px;
+  height: 100px;
+  margin: 20px auto;
+  overflow: visible;
 }
 /* Structure */
 

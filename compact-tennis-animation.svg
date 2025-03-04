@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <style>
+    @keyframes racquetSwing {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      75% { transform: rotate(-15deg); }
+    }
+    
+    @keyframes ballBounce {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(100px, -20px); }
+    }
+    
+    #racquet {
+      animation: racquetSwing 2s ease-in-out infinite;
+      transform-origin: 25px 75px;
+    }
+    
+    #ball {
+      animation: ballBounce 2s ease-in-out infinite;
+    }
+  </style>
+  
+  <!-- Tennis racquet - made smaller and centered in viewBox -->
+  <g id="racquet">
+    <!-- Handle -->
+    <rect x="20" y="60" width="10" height="35" rx="2" fill="#663300" />
+    
+    <!-- Frame -->
+    <ellipse cx="25" cy="35" rx="20" ry="30" fill="none" stroke="#333333" stroke-width="4" />
+    
+    <!-- Strings simplified -->
+    <line x1="10" y1="20" x2="40" y2="20" stroke="#CCCCCC" stroke-width="1" />
+    <line x1="10" y1="30" x2="40" y2="30" stroke="#CCCCCC" stroke-width="1" />
+    <line x1="10" y1="40" x2="40" y2="40" stroke="#CCCCCC" stroke-width="1" />
+    <line x1="10" y1="50" x2="40" y2="50" stroke="#CCCCCC" stroke-width="1" />
+    
+    <line x1="15" y1="15" x2="15" y2="55" stroke="#CCCCCC" stroke-width="1" />
+    <line x1="25" y1="10" x2="25" y2="60" stroke="#CCCCCC" stroke-width="1" />
+    <line x1="35" y1="15" x2="35" y2="55" stroke="#CCCCCC" stroke-width="1" />
+  </g>
+  
+  <!-- Tennis ball - made smaller -->
+  <g id="ball">
+    <circle cx="60" cy="35" r="10" fill="#C3E93D" />
+    <path d="M54 35 C54 30, 66 30, 66 35 C66 40, 54 40, 54 35" fill="none" stroke="white" stroke-width="1.5" />
+  </g>
+</svg>
