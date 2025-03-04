@@ -68,9 +68,53 @@
     </section>
     <div class="animation-container">
       <!-- svg code -->
-      <div class="animation-container">
-        <!-- Paste the entire SVG code here -->
-      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60">
+        <style>
+          @keyframes racquetSwing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+          }
+          
+          @keyframes ballBounce {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(60px, -10px); }
+          }
+          
+          #racquet {
+            animation: racquetSwing 2s ease-in-out infinite;
+            transform-origin: 15px 45px;
+          }
+          
+          #ball {
+            animation: ballBounce 2s ease-in-out infinite;
+          }
+        </style>
+        
+        <!-- Tennis racquet - even smaller -->
+        <g id="racquet">
+          <!-- Handle -->
+          <rect x="12" y="36" width="6" height="20" rx="2" fill="#663300" />
+          
+          <!-- Frame -->
+          <ellipse cx="15" cy="21" rx="12" ry="18" fill="none" stroke="#333333" stroke-width="3" />
+          
+          <!-- Strings simplified -->
+          <line x1="7" y1="15" x2="23" y2="15" stroke="#CCCCCC" stroke-width="0.7" />
+          <line x1="7" y1="21" x2="23" y2="21" stroke="#CCCCCC" stroke-width="0.7" />
+          <line x1="7" y1="27" x2="23" y2="27" stroke="#CCCCCC" stroke-width="0.7" />
+          
+          <line x1="10" y1="9" x2="10" y2="33" stroke="#CCCCCC" stroke-width="0.7" />
+          <line x1="15" y1="6" x2="15" y2="36" stroke="#CCCCCC" stroke-width="0.7" />
+          <line x1="20" y1="9" x2="20" y2="33" stroke="#CCCCCC" stroke-width="0.7" />
+        </g>
+        
+        <!-- Tennis ball - even smaller -->
+        <g id="ball">
+          <circle cx="36" cy="21" r="6" fill="#C3E93D" />
+          <path d="M32 21 C32 18, 40 18, 40 21 C40 24, 32 24, 32 21" fill="none" stroke="white" stroke-width="1" />
+        </g>
+      </svg>
     </div>
 
     <section class="columns hero-body">
