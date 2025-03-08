@@ -33,6 +33,32 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
   <body class="hero is-fullheight" id="top">
+    <!-- Navigation Bar -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#top">
+          <strong>BB</strong>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasic" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#top">Home</a>
+          <a class="navbar-item" href="#about">About</a>
+          <a class="navbar-item" href="#projects">Projects</a>
+          <a class="navbar-item" href="#blog">Blog</a>
+          <a class="navbar-item" href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="columns hero-body">
       <section class="column section">
         <div class="container">
@@ -117,10 +143,70 @@
       </section>
     </section>
     
-
-    <section class="columns hero-body">
+    <!-- About Me Section -->
+    <section class="columns hero-body" id="about">
       <section class="column section">
+        <div class="container">
+          <h2 class="title is-2">About Me</h2>
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <div class="content">
+                <p class="is-size-5">
+                  Hi there! I'm a software developer and DevOps engineer based in Boston, MA. With a passion for building scalable and efficient systems, I've worked across various domains including cloud infrastructure, data engineering, and web development.
+                </p>
+                <p class="is-size-5">
+                  When I'm not coding, you'll find me on the tennis court improving my serve or exploring the latest tech trends. I believe in continuous learning and pushing the boundaries of what's possible with technology.
+                </p>
+                <div class="columns mt-5">
+                  <div class="column">
+                    <h3 class="title is-4">Skills</h3>
+                    <div class="tags">
+                      <span class="tag is-medium">Python</span>
+                      <span class="tag is-medium">AWS</span>
+                      <span class="tag is-medium">GCP</span>
+                      <span class="tag is-medium">Docker</span>
+                      <span class="tag is-medium">Kubernetes</span>
+                      <span class="tag is-medium">Terraform</span>
+                      <span class="tag is-medium">CI/CD</span>
+                      <span class="tag is-medium">SQL</span>
+                      <span class="tag is-medium">NoSQL</span>
+                      <span class="tag is-medium">Flask</span>
+                      <span class="tag is-medium">Data Engineering</span>
+                      <span class="tag is-medium">ETL</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="columns">
+                  <div class="column">
+                    <h3 class="title is-4">Education</h3>
+                    <p><strong>Northeastern University</strong> - M.S. in Information Systems</p>
+                    <p><strong>Relevant Coursework:</strong> Cloud Computing, Data Engineering, Machine Learning, Web Development</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <figure class="image is-3by4">
+                <img class="is-rounded" src="https://api.placeholder.com/300/400" alt="Profile picture placeholder">
+              </figure>
+              <div class="box mt-4">
+                <h3 class="title is-5">Quick Facts</h3>
+                <ul>
+                  <li><i class="fas fa-map-marker-alt"></i> Boston, MA</li>
+                  <li><i class="fas fa-graduation-cap"></i> Northeastern University</li>
+                  <li><i class="fas fa-code-branch"></i> 3+ years professional experience</li>
+                  <li><i class="fas fa-tennis-ball"></i> Tennis player & enthusiast</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
 
+    <!-- Projects Section -->
+    <section class="columns hero-body" id="projects">
+      <section class="column section">
         <div class="container">
           <h2 class="title is-2">Projects</h2>
           <div class="columns">
@@ -158,53 +244,204 @@
               </div>
             </div>
           </div>
-          <!-- <div class="columns">
-            <div class="column is-third">
+        </div>
+      </section>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="columns hero-body" id="blog">
+      <section class="column section">
+        <div class="container">
+          <h2 class="title is-2">Blog</h2>
+          <div class="columns is-multiline">
+            <div class="column is-one-third">
               <div class="card">
-                <div class="card-content">
-                  <div class="content">
-                    <h3 class="title is-3"><a href="https://github.com/bharathbhaskr" target="_blank">Data Pipeline Optimization</a></h3>
-                    <p>End-to-end data pipelines processing 1M+ daily records using Azure Data Factory.</p>
-                    <em>Azure Data Factory, Synapse Analytics, Docker, Kubernetes</em>
-                  </div>
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://api.placeholder.com/600/400" alt="Blog post thumbnail">
+                  </figure>
                 </div>
-              </div>
-            </div> -->
-            <!-- <div class="column is-third">
-              <div class="card">
                 <div class="card-content">
                   <div class="content">
-                    <h3 class="title is-3"><a href="https://github.com/bharathbhaskr" target="_blank">Data Warehouse Solutions</a></h3>
-                    <p>Data warehouse implementations using Snowflake with 40% query performance improvements.</p>
-                    <em>Snowflake, SQL, Data Modeling, ETL</em>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="column is-third">
-              <div class="card">
-                <div class="card-content">
-                  <div class="content">
-                    <h3 class="title is-3"><a href="https://github.com/bharathbhaskr" target="_blank">Market Analytics Dashboard</a></h3>
-                    <p>Optimized SQL queries and automated dashboard updates using Power BI and Tableau.</p>
-                    <em>SQL, Power BI, Tableau, A/B Testing</em>
+                    <h3 class="title is-4"><a href="#">Optimizing Spark ETL Pipelines for Real-time Processing</a></h3>
+                    <p>Learn how to fine-tune your Spark ETL pipelines for maximum efficiency with real-time data processing.</p>
+                    <p class="has-text-grey">March 1, 2025 • 5 min read</p>
+                    <div class="tags">
+                      <span class="tag">Spark</span>
+                      <span class="tag">ETL</span>
+                      <span class="tag">Data Engineering</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div> -->
-          <footer class="footer">
-          <div class="content has-text-centered">
-            <p>
-              Bharath Bhaskar &copy; 2021&ndash;<script>document.write(new Date().getFullYear())</script> | Built with <a href="https://bulma.io/">Bulma</a>, <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i> in Boston, MA
-            </p>
-            <p>
-              <a href="#top">Back to Top <i class="fas fa-arrow-up"></i></a>
-            </p>
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://api.placeholder.com/600/400" alt="Blog post thumbnail">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <h3 class="title is-4"><a href="#">Infrastructure as Code: Best Practices with Terraform</a></h3>
+                    <p>A comprehensive guide to managing cloud infrastructure using Terraform and implementing IaC principles.</p>
+                    <p class="has-text-grey">February 15, 2025 • 8 min read</p>
+                    <div class="tags">
+                      <span class="tag">Terraform</span>
+                      <span class="tag">IaC</span>
+                      <span class="tag">DevOps</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://api.placeholder.com/600/400" alt="Blog post thumbnail">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <h3 class="title is-4"><a href="#">How Tennis Improved My Problem-Solving Skills as a Developer</a></h3>
+                    <p>Exploring the parallels between competitive tennis and software development problem-solving approaches.</p>
+                    <p class="has-text-grey">January 28, 2025 • 6 min read</p>
+                    <div class="tags">
+                      <span class="tag">Personal</span>
+                      <span class="tag">Tennis</span>
+                      <span class="tag">Problem Solving</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </footer>
-        <div>
+          <div class="has-text-centered mt-6">
+            <a href="#" class="button is-primary is-medium">View All Posts</a>
+          </div>
+        </div>
       </section>
     </section>
+
+    <!-- Contact Section -->
+    <section class="columns hero-body" id="contact">
+      <section class="column section">
+        <div class="container">
+          <h2 class="title is-2">Get In Touch</h2>
+          <div class="columns">
+            <div class="column is-half">
+              <div class="content">
+                <p class="is-size-5">
+                  Interested in working together or have a question? Feel free to reach out using the contact form or through any of my social channels.
+                </p>
+                <div class="info-container mt-5">
+                  <div class="info-item mb-4">
+                    <span class="icon is-medium mr-3">
+                      <i class="fas fa-envelope fa-lg"></i>
+                    </span>
+                    <span>bhaskar.bh@northeastern.edu</span>
+                  </div>
+                  <div class="info-item mb-4">
+                    <span class="icon is-medium mr-3">
+                      <i class="fas fa-map-marker-alt fa-lg"></i>
+                    </span>
+                    <span>Boston, MA</span>
+                  </div>
+                  <div class="info-item mb-4">
+                    <span class="icon is-medium mr-3">
+                      <i class="fab fa-linkedin-in fa-lg"></i>
+                    </span>
+                    <span><a href="https://www.linkedin.com/in/bharathbhaskar99/" target="_blank">linkedin.com/in/bharathbhaskar99</a></span>
+                  </div>
+                  <div class="info-item mb-4">
+                    <span class="icon is-medium mr-3">
+                      <i class="fab fa-github fa-lg"></i>
+                    </span>
+                    <span><a href="https://github.com/bharathbhaskr" target="_blank">github.com/bharathbhaskr</a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div class="box">
+                <form>
+                  <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="Your name">
+                    </div>
+                  </div>
+                  
+                  <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                      <input class="input" type="email" placeholder="Your email">
+                    </div>
+                  </div>
+                  
+                  <div class="field">
+                    <label class="label">Subject</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="Subject">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                      <textarea class="textarea" placeholder="Your message"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <div class="control">
+                      <button class="button is-primary is-fullwidth">Send Message</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          Bharath Bhaskar &copy; 2021&ndash;<script>document.write(new Date().getFullYear())</script> | Built with <a href="https://bulma.io/">Bulma</a>, <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i> in Boston, MA
+        </p>
+        <p>
+          <a href="#top">Back to Top <i class="fas fa-arrow-up"></i></a>
+        </p>
+      </div>
+    </footer>
+    
+    <!-- JavaScript for Navbar Toggle -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+          // Add a click event on each of them
+          $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+      
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script>
   </body>
 </html>
