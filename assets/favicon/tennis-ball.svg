@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Tennis ball -->
+  <circle cx="256" cy="256" r="240" fill="#C3E93D" />
+  
+  <!-- Tennis ball curve lines -->
+  <path d="M256 16 C256 16, 400 16, 400 256 C400 496, 256 496, 256 496" 
+        fill="none" stroke="white" stroke-width="24" />
+  <path d="M256 16 C256 16, 112 16, 112 256 C112 496, 256 496, 256 496" 
+        fill="none" stroke="white" stroke-width="24" />
+  
+  <!-- Add subtle highlights for dimension -->
+  <circle cx="200" cy="200" r="20" fill="rgba(255, 255, 255, 0.3)" />
+</svg>
