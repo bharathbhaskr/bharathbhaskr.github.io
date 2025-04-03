@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRCPGWMDK7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CRCPGWMDK7');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Learn how to fine-tune your Spark ETL pipelines for maximum efficiency with real-time data processing - Blog by Bharath Bhaskar, software engineer and tennis enthusiast.">
+    <title>Optimizing Spark ETL Pipelines for Real-time Processing - Bharath Bhaskar</title>
+    
+    <!-- Open graph -->
+    <meta property="og:title" content="Optimizing Spark ETL Pipelines for Real-time Processing - Bharath Bhaskar" />
+    <meta property="og:description" content="Learn how to fine-tune your Spark ETL pipelines for maximum efficiency with real-time data processing.">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bharathbhaskr.github.io/blog/spark-etl-pipelines.html" />
+    <meta property="og:image" content="https://www.bharathbhaskr.github.io/assets/blog/spark-etl-pipelines-cover.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/favicon/tennis-ball.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <!-- Add blog-specific styles -->
+    <style>
+      .blog-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      .blog-content p {
+        margin-bottom: 1.5rem;
+      }
+      .blog-content h2 {
+        font-size: 1.8rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .blog-content h3 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 0.8rem;
+      }
+      .blog-content ul, .blog-content ol {
+        margin-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      .blog-content img {
+        max-width: 100%;
+        height: auto;
+        margin: 2rem 0;
+      }
+      .blog-content pre {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        overflow-x: auto;
+      }
+      .blog-content code {
+        font-family: monospace;
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+      }
+      .blog-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+      }
+      .blog-meta {
+        color: #777;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="../index.html#top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5px;">
+            <!-- Tennis racquet -->
+            <rect x="10" y="14" width="4" height="10" rx="1" fill="#663300" />
+            <ellipse cx="12" cy="8" rx="8" ry="12" fill="none" stroke="#333333" stroke-width="2" />
+            
+            <!-- Strings -->
+            <line x1="6" y1="4" x2="18" y2="4" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="5" y1="8" x2="19" y2="8" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="6" y1="12" x2="18" y2="12" stroke="#CCCCCC" stroke-width="0.5" />
+            
+            <line x1="8" y1="2" x2="8" y2="14" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="12" y1="1" x2="12" y2="15" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="16" y1="2" x2="16" y2="14" stroke="#CCCCCC" stroke-width="0.5" />
+          </svg>
+          <strong>BB</strong>
+        </a>
+      </div>
+
+      <div id="navbarBasic" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="../index.html#top">Home</a>
+          <a class="navbar-item" href="../index.html#about">About</a>
+          <a class="navbar-item" href="../index.html#projects">Projects</a>
+          <a class="navbar-item" href="../index.html#blog">Blog</a>
+          <a class="navbar-item" href="../index.html#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <section class="section" style="margin-top: 70px;">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <!-- Blog header -->
+            <div class="blog-header">
+              <h1 class="title is-2">Optimizing Spark ETL Pipelines for Real-time Processing</h1>
+              <div class="blog-meta">
+                <span><i class="far fa-calendar-alt"></i> March 1, 2025</span>
+                <span class="mx-2">•</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+                
+                <!-- Tags -->
+                <div class="tags mt-3">
+                  <span class="tag">Spark</span>
+                  <span class="tag">ETL</span>
+                  <span class="tag">Data Engineering</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Featured image -->
+            <figure class="image mb-5">
+              <img src="https://api.placeholder.com/1200/600" alt="Spark ETL Pipelines">
+            </figure>
+            
+            <!-- Actual blog content -->
+            <div class="content blog-content">
+              <p>
+                Apache Spark has become the go-to framework for building efficient, distributed data processing pipelines. However, when it comes to real-time data processing, there are several optimizations that can significantly improve performance. In this article, we'll explore how to fine-tune your Spark ETL pipelines for maximum efficiency.
+              </p>
+              
+              <h2>Understanding the Challenges of Real-time ETL</h2>
+              
+              <p>
+                Real-time ETL presents unique challenges compared to batch processing. The data arrives continuously, and the processing system needs to maintain low latency while ensuring data consistency and fault tolerance. These requirements put additional strain on the processing framework.
+              </p>
+              
+              <p>
+                Here are some common challenges with real-time ETL:
+              </p>
+              
+              <ul>
+                <li>Maintaining low latency as data volume grows</li>
+                <li>Handling late-arriving data</li>
+                <li>Managing stateful operations across distributed processes</li>
+                <li>Dealing with backpressure when downstream systems can't keep up</li>
+                <li>Ensuring exactly-once processing semantics</li>
+              </ul>
+              
+              <h2>Key Optimizations for Spark Streaming ETL</h2>
+              
+              <h3>1. Tune Micro-batch Duration</h3>
+              
+              <p>
+                Spark Structured Streaming processes data in micro-batches. The batch duration is a critical parameter that impacts both latency and throughput:
+              </p>
+              
+              <pre><code>
+// Setting trigger interval to 1 second
+spark
+  .readStream
+  .format("kafka")
+  .option("kafka.bootstrap.servers", "localhost:9092")
+  .option("subscribe", "input-topic")
+  .load()
+  .writeStream
+  .trigger(Trigger.ProcessingTime("1 second"))
+  .format("console")
+  .start()
+              </code></pre>
+              
+              <p>
+                Shorter intervals reduce latency but increase overhead. Longer intervals improve throughput but increase end-to-end latency. I recommend starting with a 1-second interval and adjusting based on your specific use case.
+              </p>
+              
+              <h3>2. Optimize Partition Count</h3>
+              
+              <p>
+                The number of partitions affects parallelism in Spark. Too few partitions limit parallelism, while too many increase overhead. As a rule of thumb, aim for 2-3 partitions per CPU core:
+              </p>
+              
+              <pre><code>
+// Repartitioning data to optimize parallelism
+streamingDF
+  .repartition(numPartitions)
+  .writeStream
+  .format("parquet")
+  .start()
+              </code></pre>
+              
+              <h3>3. Implement Windowed Operations Efficiently</h3>
+              
+              <p>
+                Windowed operations are common in real-time processing but can be resource-intensive. Optimize them by:
+              </p>
+              
+              <ul>
+                <li>Using sliding windows only when necessary</li>
+                <li>Setting appropriate watermarks to handle late data and limit state size</li>
+                <li>Minimizing the window duration to reduce state size</li>
+              </ul>
+              
+              <pre><code>
+// Setting a watermark and defining a window
+streamingDF
+  .withWatermark("eventTime", "10 minutes")
+  .groupBy(window($"eventTime", "5 minutes"))
+  .agg(count("*").as("events"))
+              </code></pre>
+              
+              <h3>4. Leverage Checkpointing</h3>
+              
+              <p>
+                Checkpointing is crucial for fault tolerance in streaming applications, but it can also impact performance:
+              </p>
+              
+              <pre><code>
+// Configure checkpointing
+streamingQuery
+  .option("checkpointLocation", "/path/to/checkpoint")
+  .start()
+              </code></pre>
+              
+              <p>
+                Store checkpoints on a reliable, high-speed storage system. For production, I recommend using an HDFS-compatible distributed file system or cloud storage like S3.
+              </p>
+              
+              <h2>Real-world Patterns for Scalable ETL</h2>
+              
+              <h3>Pattern 1: The Lambda Architecture</h3>
+              
+              <p>
+                Combining batch and streaming processing can provide both accuracy and speed. In this pattern:
+              </p>
+              
+              <ul>
+                <li>The batch layer processes historical data for completeness</li>
+                <li>The speed layer handles real-time data for low latency</li>
+                <li>The serving layer combines results from both layers</li>
+              </ul>
+              
+              <h3>Pattern 2: Stateless Transformations</h3>
+              
+              <p>
+                Whenever possible, design transformations to be stateless. Stateless operations can be parallelized more efficiently and reduce memory pressure. Push stateful operations downstream when possible.
+              </p>
+              
+              <h3>Pattern 3: Data Validation at Ingestion</h3>
+              
+              <p>
+                Filtering and validating data early in the pipeline prevents invalid records from consuming resources:
+              </p>
+              
+              <pre><code>
+// Filter invalid records early
+streamingDF
+  .filter($"value".isNotNull && length($"value") > 0)
+  .filter(/* business validation logic */)
+  .select(/* transformations */)
+              </code></pre>
+              
+              <h2>Conclusion</h2>
+              
+              <p>
+                Optimizing Spark ETL pipelines for real-time processing requires a combination of understanding Spark's execution model, tuning configuration parameters, and implementing efficient design patterns. By applying the techniques described in this article, you can significantly improve the performance, reliability, and scalability of your real-time data processing workflows.
+              </p>
+              
+              <p>
+                In my next post, I'll dive deeper into monitoring and troubleshooting Spark Streaming jobs in production environments. Stay tuned!
+              </p>
+            </div>
+            
+            <!-- Author info -->
+            <div class="box mt-6">
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-64x64">
+                    <img class="is-rounded" src="../profile.jpg" alt="Bharath Bhaskar">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>Bharath Bhaskar</strong>
+                      <br>
+                      Software developer, DevOps engineer & tennis enthusiast based in Boston. Connect with me on <a href="https://www.linkedin.com/in/bharathbhaskar99/" target="_blank">LinkedIn</a> or <a href="https://github.com/bharathbhaskr" target="_blank">GitHub</a>.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+            <!-- Post navigation -->
+            <div class="columns mt-6">
+              <div class="column">
+                <!-- Since this is the first post, no previous post link -->
+              </div>
+              <div class="column has-text-right">
+                <a href="terraform-best-practices.html" class="button is-outlined">
+                  <span>Next Post</span>
+                  <span class="icon">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Back to all posts -->
+            <div class="has-text-centered mt-6">
+              <a href="../index.html#blog" class="button is-primary">
+                <span class="icon">
+                  <i class="fas fa-th-large"></i>
+                </span>
+                <span>All Posts</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-6">
+      <div class="content has-text-centered">
+        <p>
+          Bharath Bhaskar &copy; 2021&ndash;<script>document.write(new Date().getFullYear())</script> | <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i> in Boston, MA
+        </p>
+        <p>
+          <a href="#top">Back to Top <i class="fas fa-arrow-up"></i></a>
+        </p>
+      </div>
+    </footer>
+    
+    <!-- JavaScript for Navbar Toggle -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+          // Add a click event on each of them
+          $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+      
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
