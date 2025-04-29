@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRCPGWMDK7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CRCPGWMDK7');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Serverless CI/CD: Automating AWS Lambda releases using Step Functions for end-to-end automation and reliability.">
+    <title>Serverless CI/CD: Automating Your AWS Lambda Release with Step Functions - Bharath Bhaskar</title>
+    <!-- Open graph -->
+    <meta property="og:title" content="Serverless CI/CD: Automating Your AWS Lambda Release with Step Functions" />
+    <meta property="og:description" content="Learn how to build a fully serverless CI/CD pipeline for AWS Lambda using Step Functions, CodeCommit, CodeBuild, and CodeDeploy." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://bharathbhaskr.github.io/blog/serverless-ci-cd-lambda.html" />
+    <meta property="og:image" content="https://www.bharathbhaskr.github.io/assets/blog/serverless-ci-cd-lambda-cover.jpg" />
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/favicon/tennis-ball.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      .blog-content { font-size: 1.1rem; line-height: 1.8; }
+      .blog-content p { margin-bottom: 1.5rem; }
+      .blog-content h2 { font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+      .blog-content h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.8rem; }
+      .blog-content ul, .blog-content ol { margin-left: 2rem; margin-bottom: 1.5rem; }
+      .blog-header { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="../index.html#top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5px;">
+            <rect x="10" y="14" width="4" height="10" rx="1" fill="#663300" />
+            <ellipse cx="12" cy="8" rx="8" ry="12" fill="none" stroke="#333333" stroke-width="2" />
+            <line x1="6" y1="4" x2="18" y2="4" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="5" y1="8" x2="19" y2="8" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="6" y1="12" x2="18" y2="12" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="8" y1="2" x2="8" y2="14" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="12" y1="1" x2="12" y2="15" stroke="#CCCCCC" stroke-width="0.5" />
+            <line x1="16" y1="2" x2="16" y2="14" stroke="#CCCCCC" stroke-width="0.5" />
+          </svg>
+          <strong>BB</strong>
+        </a>
+      </div>
+      <div id="navbarBasic" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="../index.html#top">Home</a>
+          <a class="navbar-item" href="../index.html#about">About</a>
+          <a class="navbar-item" href="../index.html#projects">Projects</a>
+          <a class="navbar-item" href="../index.html#blog">Blog</a>
+          <a class="navbar-item" href="../index.html#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Blog Post -->
+    <section class="section" style="margin-top: 70px;">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <!-- Header -->
+            <div class="blog-header">
+              <h1 class="title is-2">Serverless CI/CD: Automating Your AWS Lambda Release with Step Functions</h1>
+              <div class="blog-meta">
+                <span><i class="far fa-calendar-alt"></i> April 29, 2025</span>
+                <span class="mx-2">•</span>
+                <span><i class="far fa-clock"></i> 7 min read</span>
+                <div class="tags mt-3">
+                  <span class="tag">Serverless</span>
+                  <span class="tag">CI/CD</span>
+                  <span class="tag">AWS Lambda</span>
+                  <span class="tag">Step Functions</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content blog-content">
+              <p>Imagine merging a pull request and—like magic—your new AWS Lambda function is tested, packaged, and deployed to production without you lifting a finger. Welcome to fully serverless CI/CD! In this post, we'll build an end-to-end pipeline using AWS CodeCommit, CodeBuild, CodeDeploy, and orchestrate it all with Step Functions for transparency, retries, and easy observability.</p>
+
+              <h2>Why Go Serverless for CI/CD?</h2>
+              <p>Traditional CI/CD servers are great, but they come with management overhead and scaling concerns. By using AWS’s managed services, you pay only when your pipeline runs, eliminate server maintenance, and leverage built-in integrations with IAM, CloudWatch, and EventBridge for notifications and monitoring.</p>
+
+              <h2>Architecture Overview</h2>
+              <p>Our pipeline will consist of:</p>
+              <ul>
+                <li><strong>CodeCommit</strong>: Git repo for your Lambda code.</li>
+                <li><strong>CodeBuild</strong>: Runs unit tests and packages your function into a .zip.</li>
+                <li><strong>CodeDeploy</strong>: Deploys the package to your Lambda alias with traffic shifting.</li>
+                <li><strong>Step Functions</strong>: Coordinates each step, handles errors, and sends notifications.</li>
+              </ul>
+              <p>This modular design means you can swap in third-party tools or add approval steps with minimal changes.</p>
+
+              <h2>Step-by-Step Guide</h2>
+              <h3>1. Create Your CodeCommit Repository</h3>
+              <p>In the AWS Console, navigate to CodeCommit and create a new repo called <code>lambda-app</code>. Clone it locally and add your Lambda handler, a <code>buildspec.yml</code>, and a unit test folder:</p>
+              <pre><code>git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/lambda-app
+cd lambda-app
+# Add your lambda_function.py, tests/, buildspec.yml
+git add .
+git commit -m "Initial commit"
+git push origin master
+              </code></pre>
+
+              <h3>2. Define Your Build Specification</h3>
+              <p>Your <code>buildspec.yml</code> should install dependencies, run tests, and create an artifact:</p>
+              <pre><code>version: 0.2
+phases:
+  install:
+    commands:
+      - pip install -r requirements.txt -t .
+  build:
+    commands:
+      - pytest tests/
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
+  base-directory: .
+              </code></pre>
+
+              <h3>3. Setup CodeBuild Project</h3>
+              <p>Create a CodeBuild project linked to your repo. Choose the managed image <code>aws/codebuild/standard:5.0</code>, enable buildspec from source, and give it a service role with S3 read/write (for artifacts) and permissions to invoke Step Functions.</p>
+
+              <h3>4. Configure CodeDeploy for Lambda</h3>
+              <p>Use <code>AppSpec</code> for Lambda in your repo. In <code>appspec.yml</code>:</p>
+              <pre><code>version: 0.0
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: my-lambda-app
+        Alias: live
+Hooks:
+  - BeforeAllowTraffic: validate
+  - AfterAllowTraffic: notify
+              </code></pre>
+              <p>Create a CodeDeploy application of type “Lambda” and a deployment group targeting your function’s alias with a linear traffic shift of 10% every minute.</p>
+
+              <h3>5. Orchestrate with Step Functions</h3>
+              <p>In Step Functions, define a state machine that:</p>
+              <ol>
+                <li>Starts the CodeBuild job.</li>
+                <li>Waits for build success or failure.</li>
+                <li>On success, triggers a CodeDeploy deployment.</li>
+                <li>Monitors deployment status.</li>
+                <li>Sends success/failure notifications via SNS or ChatOps.</li>
+              </ol>
+              <p>Your <code>stateMachine.asl.json</code> might look like:</p>
+              <pre><code>{
+  "StartAt": "Build",
+  "States": {
+    "Build": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::codebuild:startBuild.sync",
+      "Parameters": { "ProjectName": "lambda-app-build" },
+      "Next": "Deploy"
+    },
+    "Deploy": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::codedeploy:createDeployment",
+      "Parameters": {
+        "ApplicationName": "lambda-app-cd",
+        "DeploymentGroupName": "LambdaAliasGroup",
+        "Revision": { /* S3 location from build */ }
+      },
+      "Next": "WaitForDeployment"
+    },
+    "WaitForDeployment": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::codedeploy:getDeployment",
+      "Parameters": { "deploymentId.$": "$.deploymentId" },
+      "End": true
+    }
+  }
+}
+              </code></pre>
+
+              <h2>Testing & Monitoring</h2>
+              <p>Once deployed, commit a small change, push to CodeCommit, and watch your pipeline in the Step Functions console. You’ll see each step light up, know exactly where failures happen, and can retry individual states. CloudWatch logs, metrics, and X-Ray traces (if enabled) give deep insights into performance.</p>
+
+              <h2>Conclusion</h2>
+              <p>With this serverless CI/CD approach, you get zero-ops infrastructure, pay-per-execution, and a transparent, reliable pipeline. Whether you’re a one-person team or a large organization, automating Lambda releases with Step Functions scales with you. Happy deploying!</p>
+
+              <p>Next up: securing your pipeline with least-privilege roles and integrating approval gates via AWS Lambda and API Gateway. Stay tuned!</p>
+            </div>
+
+            <!-- Author -->
+            <div class="box mt-6">
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-64x64">
+                    <img class="is-rounded" src="../profile.jpg" alt="Bharath Bhaskar">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>Bharath Bhaskar</strong><br>
+                      Software developer, DevOps engineer & tennis enthusiast based in Boston. Connect on <a href="https://www.linkedin.com/in/bharathbhaskar99/" target="_blank">LinkedIn</a> or <a href="https://github.com/bharathbhaskr" target="_blank">GitHub</a>.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Back to posts -->
+            <div class="has-text-centered mt-6">
+              <a href="../index.html#blog" class="button is-primary">
+                <span class="icon"><i class="fas fa-th-large"></i></span>
+                <span>All Posts</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-6">
+      <div class="content has-text-centered">
+        <p>
+          Bharath Bhaskar &copy; 2021&ndash;<script>document.write(new Date().getFullYear())</script> | <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i> in Boston, MA
+        </p>
+        <p>
+          <a href="#top">Back to Top <i class="fas fa-arrow-up"></i></a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Navbar toggle script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const $burgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($burgers.length > 0) {
+          $burgers.forEach(el => {
+            el.addEventListener('click', () => {
+              const target = document.getElementById(el.dataset.target);
+              el.classList.toggle('is-active');
+              target.classList.toggle('is-active');
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
