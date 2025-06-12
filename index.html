@@ -1,390 +1,365 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
-  <head>
-    <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRCPGWMDK7"></script>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bharath Bhaskar · Software Engineer & DevOps Specialist</title>
+
+  <!-- Tailwind CDN – production build with dark-mode enabled -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-CRCPGWMDK7');
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#2563EB', 50: '#eff6ff' }
+          }
+        }
+      }
+    };
   </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Description" content="Portfolio site of Bharath Bhaskar, a Boston based software engineer, email developer and tennis enthusiast.">
-    <title>Bharath Bhaskar - Software Engineer && Email Developer
-    </title>
-    <!-- open graph -->
-    <meta property="og:title" content="Bharath Bhaskar's Personal Website" />
-    <meta property="og:description" content="Your friendly, neighborhood, CSS, Javascript, Ruby on Rails & tennis enthusiast.">
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bharathbhaskr.github.io/" />
-    <meta property="og:image" content="https://www.bharathbhaskr.github.io/assets/open-graph.png" />
-    <!-- favicon-->
-    <link rel="icon" href="assets/favicon/tennis-ball.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <!--favicon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  </head>
-  <body class="hero is-fullheight" id="top">
-    <!-- Navigation Bar -->
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="#top">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5px;">
-            <!-- Tennis racquet -->
-            <rect x="10" y="14" width="4" height="10" rx="1" fill="#663300" />
-            <ellipse cx="12" cy="8" rx="8" ry="12" fill="none" stroke="#333333" stroke-width="2" />
-            
-            <!-- Strings -->
-            <line x1="6" y1="4" x2="18" y2="4" stroke="#CCCCCC" stroke-width="0.5" />
-            <line x1="5" y1="8" x2="19" y2="8" stroke="#CCCCCC" stroke-width="0.5" />
-            <line x1="6" y1="12" x2="18" y2="12" stroke="#CCCCCC" stroke-width="0.5" />
-            
-            <line x1="8" y1="2" x2="8" y2="14" stroke="#CCCCCC" stroke-width="0.5" />
-            <line x1="12" y1="1" x2="12" y2="15" stroke="#CCCCCC" stroke-width="0.5" />
-            <line x1="16" y1="2" x2="16" y2="14" stroke="#CCCCCC" stroke-width="0.5" />
-          </svg>
-          <strong>BB</strong>
-        </a>
-      </div>
 
-      <div id="navbarBasic" class="navbar-menu">
-        <div class="navbar-end">
-          <a class="navbar-item" href="#top">Home</a>
-          <a class="navbar-item" href="#about">About</a>
-          <a class="navbar-item" href="#projects">Projects</a>
-          <a class="navbar-item" href="#blog">Blog</a>
-          <a class="navbar-item" href="#contact">Contact</a>
-        </div>
-      </div>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Animation on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => AOS.init({ once:true }));</script>
+
+  <!-- Dark-mode toggle helper (optional) -->
+  <script>
+    const toggleTheme = () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    };
+    if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+  </script>
+</head>
+
+<body class="bg-white text-gray-700 dark:bg-gray-900 dark:text-gray-200">
+<!-- =====================  NAVBAR  ===================== -->
+<header class="fixed top-0 inset-x-0 backdrop-blur border-b border-gray-200/60 dark:border-gray-700/60 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href="#home" class="font-semibold text-lg tracking-wide">Bharath Bhaskar</a>
+    <nav class="hidden md:flex gap-6 text-sm">
+      <a href="#about" class="hover:text-primary">About</a>
+      <a href="#skills" class="hover:text-primary">Skills</a>
+      <a href="#projects" class="hover:text-primary">Projects</a>
+      <a href="#experience" class="hover:text-primary">Experience</a>
+      <a href="#blog" class="hover:text-primary">Blog</a>
+      <a href="#contact" class="hover:text-primary">Contact</a>
     </nav>
+    <button onclick="toggleTheme()" class="md:ml-6" aria-label="Toggle dark mode">
+      <i data-feather="moon" class="w-5 h-5"></i>
+    </button>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="columns hero-body">
-      <section class="column section is-two-thirds">
-        <div class="container">
-          <h1 class="title is-1">
-            Hey! I&rsquo;m Bharath.  
-          </h1>
-          <h2 class="subtitle is-2">
-            Your friendly, neighborhood, <strong>software developer, DevOps engineer</strong> & tennis&nbsp;enthusiast and player.
-
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-          </h2>
-
-            
-            <span class="icon is-medium">
-              <a href="https://github.com/bharathbhaskr" aria-label="GitHub" class="fab" target="_blank" title="Github"><i class="fab fa-github fa-2x"></i></a>
-            </span>
-            <span class="icon is-medium">
-              <a href="https://www.linkedin.com/in/bharathbhaskar99/" aria-label="Linkedin" class="fab" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in fa-2x"></i></a>
-            </span>
-            <span class="icon is-medium">
-              <a href="mailto:bhaskar.bh@northeastern.edu" class="fab"><i class="fas fa-at fa-2x"></i></a>
-            </span>
-            <span class="icon is-medium">
-              <a href="assets/resume.pdf" aria-label="Resume" class="fab" target="_blank" title="Resume"><i class="fas fa-file-alt fa-2x"></i></a>
-            </span>
-
-        </div>
-      </section>
-      <!-- Profile Photo Section -->
-      <section class="column section is-one-third">
-        <div class="container has-text-centered">
-          <figure class="image is-256x256 mx-auto">
-            <img class="is-rounded" src="profile.jpg" alt="Bharath Bhaskar profile photo">
-          </figure>
-          <div class="mt-4">
-            <span class="tag is-info is-light is-medium">
-              <i class="fas fa-map-marker-alt mr-2"></i> Boston, MA
-            </span>
-          </div>
-        </div>
-      </section>
-    </section>
-    
-    <!-- About Me Section -->
-    <section class="columns hero-body" id="about">
-      <section class="column section">
-        <div class="container">
-          <h2 class="title is-2">About Me</h2>
-          <div class="columns">
-            <div class="column is-two-thirds">
-              <div class="content">
-                <p class="is-size-5">
-                  Hi there! I'm a software developer and DevOps engineer based in Boston, MA. With a passion for building scalable and efficient systems, I've worked across various domains including cloud infrastructure, data engineering, and web development.
-                </p>
-                <p class="is-size-5">
-                  When I'm not coding, you'll find me on the tennis court improving my serve or exploring the latest tech trends. I believe in continuous learning and pushing the boundaries of what's possible with technology.
-                </p>
-                <div class="columns mt-5">
-                  <div class="column">
-                    <h3 class="title is-4">Skills</h3>
-                    <div class="tags">
-                      <span class="tag is-medium">Python</span>
-                      <span class="tag is-medium">AWS</span>
-                      <span class="tag is-medium">GCP</span>
-                      <span class="tag is-medium">Azure</span>
-                      <span class="tag is-medium">Docker</span>
-                      <span class="tag is-medium">Kubernetes</span>
-                      <span class="tag is-medium">Terraform</span>
-                      <span class="tag is-medium">CI/CD</span>
-                      <span class="tag is-medium">SQL</span>
-                      <span class="tag is-medium">NoSQL</span>
-                      <span class="tag is-medium">Data Engineering</span>
-                      <span class="tag is-medium">ETL</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="box mt-4">
-                <h3 class="title is-5">Quick Facts</h3>
-                <ul>
-                  <li><i class="fas fa-map-marker-alt"></i> Boston, MA</li>
-                  <li><i class="fas fa-graduation-cap"></i> Northeastern University</li>
-                  <li><i class="fas fa-code-branch"></i> 3+ years professional experience</li>
-                  <li><i class="fas fa-tennis-ball"></i> Tennis player & enthusiast</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="columns hero-body" id="projects">
-      <section class="column section">
-        <div class="container">
-          <h2 class="title is-2">Projects</h2>
-          <div class="columns">
-            <div class="column">
-              <div class="card">
-                <div class="card-content">
-                  <div class="content">
-                    <h3 class="title is-3"><a href="https://github.com/bharathbhaskr/user-directory-gcp-terraform" target="_blank">Cloud Native WebApp</a></h3>
-                    <p>Scalable RESTful API frameworks for user authentication with SQL database structures.</p>
-                    <em>GCP, Flask, Python, Terraform, DNS, Packer, CI/CD</em>
-                  </div>
-                </div>
-              </div>
-            </div> 
-            <div class="column">
-              <div class="card">
-                <div class="card-content">
-                  <div class="content">
-                    <h3 class="title is-3"><a href="https://github.com/bharathbhaskr/pytorch-audio-ddp-bird-classification" target="_blank">Distributed Deep Learning for Audio-Based Classification</a></h3>
-                    <p>Deep learning model using PyTorch to classify bird species from audio data.</p>
-                    <em>PyTorch, Librosa, Dask</em>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card">
-                <div class="card-content">
-                  <div class="content">
-                    <h3 class="title is-3"><a href="https://github.com/Samhith-k/data-center-ecology-map" target="_blank">Data Center Ecology Map (EcoGrid Tycoon)</a></h3>
-                    <p>Conceived an interactive map based platform that analyzes & compares the ecological impact of data center construction at physical locations</p>
-                    <em>Go, React.JS, Selenium</em>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- Blog Section -->
-    <!-- Blog Section -->
-<section class="columns hero-body" id="blog">
-  <section class="column section">
-    <div class="container">
-      <h2 class="title is-2">Blog</h2>
-      <div class="columns is-multiline">
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="serverless.jpg" alt="Terraform blog post thumbnail">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <h3 class="title is-4"><a href="blog/serverless-ci-cd.html">Serverless CI/CD: Automating Your AWS Lambda Release with Step Functions</a></h3>
-                <p>Discover how I built a fully serverless CI/CD pipeline using AWS Lambda, CodeBuild, and Step Functions—no servers, no fuss, just automation at its cleanest. A practical guide to modern DevOps with real-world code and architecture.</p>
-                <p class="has-text-grey">February 15, 2025 • 8 min read</p>
-                <div class="tags">
-                  <span class="tag">Serverless</span>
-                  <span class="tag">CI/CD</span>
-                  <span class="tag">DevOps</span>
-                  <span class="tag">AWS</span>
-                  <span class="tag">CloudEngineering</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column is-one-third">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="djokovic.jpg" alt="Tennis blog post thumbnail">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <h3 class="title is-4"><a href="blog/tennis-made-me-code-better.html">How Tennis Made Me a Better Developer</a></h3>
-                <p>From Djokovic’s grit to debugging strategies, this post explores how tennis shaped my approach to software development. A personal story of adaptation, resilience, and finding tech inspiration on the court.</p>
-                <p class="has-text-grey">January 28, 2025 • 6 min read</p>
-                <div class="tags">
-                  <span class="tag">PersonalGrowth</span>
-                  <span class="tag">Tennis</span>
-                  <span class="tag">Problem Solving</span>
-                  <span class="tag">Mindset</span>
-                  <span class="tag">SoftwareEngineering</span>
-                  <span class="tag">Adaptability</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="has-text-centered mt-6">
-        <a href="blog/index.html" class="button is-primary is-medium">View All Posts</a>
+<main id="home" class="pt-24">
+  <!-- ========== HERO ========= -->
+  <section class="bg-gradient-to-br from-primary via-indigo-600 to-purple-600 text-white py-24">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-6" data-aos="fade-up">
+      <h1 class="text-4xl sm:text-5xl font-bold">Hi, I’m Bharath Bhaskar</h1>
+      <p class="text-lg sm:text-xl max-w-2xl mx-auto">
+        Software Engineer & <span class="whitespace-nowrap">DevOps Specialist</span> who loves
+        shipping reliable infrastructure, automating pipelines, and solving complex backend problems.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/bharathbhaskr" target="_blank"
+           class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20">
+           <i data-feather="github" class="w-5 h-5"></i>GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/bharathbhaskar99/" target="_blank"
+           class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20">
+           <i data-feather="linkedin" class="w-5 h-5"></i>LinkedIn
+        </a>
+        <a href="assets/resume.pdf" target="_blank"
+           class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20">
+           <i data-feather="file-text" class="w-5 h-5"></i>Résumé
+        </a>
       </div>
     </div>
   </section>
-</section>
 
-    <!-- Contact Section -->
-    <section class="columns hero-body" id="contact">
-      <section class="column section">
-        <div class="container">
-          <h2 class="title is-2">Get In Touch</h2>
-          <div class="columns">
-            <div class="column is-half">
-              <div class="content">
-                <p class="is-size-5">
-                  Interested in working together or have a question? Feel free to reach out using the contact form or through any of my social channels.
-                </p>
-                <div class="info-container mt-5">
-                  <div class="info-item mb-4">
-                    <span class="icon is-medium mr-3">
-                      <i class="fas fa-envelope fa-lg"></i>
-                    </span>
-                    <span>bhaskar.bh@northeastern.edu</span>
-                  </div>
-                  <div class="info-item mb-4">
-                    <span class="icon is-medium mr-3">
-                      <i class="fas fa-map-marker-alt fa-lg"></i>
-                    </span>
-                    <span>Boston, MA</span>
-                  </div>
-                  <div class="info-item mb-4">
-                    <span class="icon is-medium mr-3">
-                      <i class="fab fa-linkedin-in fa-lg"></i>
-                    </span>
-                    <span><a href="https://www.linkedin.com/in/bharathbhaskar99/" target="_blank">linkedin.com/in/bharathbhaskar99</a></span>
-                  </div>
-                  <div class="info-item mb-4">
-                    <span class="icon is-medium mr-3">
-                      <i class="fab fa-github fa-lg"></i>
-                    </span>
-                    <span><a href="https://github.com/bharathbhaskr" target="_blank">github.com/bharathbhaskr</a></span>
-                  </div>
-                </div>
-              </div>
+  <!-- ========== ABOUT ========= -->
+  <section id="about" class="py-20">
+    <div class="max-w-5xl mx-auto px-4 md:flex md:items-center gap-12" data-aos="fade-right">
+      <img src="profile.jpg" alt="Profile photo of Bharath Bhaskar"
+           class="w-48 h-48 rounded-full object-cover mx-auto md:mx-0 shadow-lg">
+      <div class="mt-8 md:mt-0">
+        <h2 class="text-3xl font-semibold mb-4">About Me</h2>
+        <p class="leading-relaxed">
+          I build cloud-native services and automated delivery pipelines that keep engineering
+          teams shipping with confidence. Over the last 3+ years I’ve designed scalable REST APIs,
+          containerized legacy apps, and led infrastructure migrations across AWS, GCP, and Azure.
+          Outside work you’ll find me contributing to open-source tooling, writing about DevOps
+          best-practices, or running to the nearest tennis court to play in Boston.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========= -->
+  <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4" data-aos="fade-left">
+      <h2 class="text-3xl font-semibold text-center mb-12">Core Skill-Set</h2>
+
+      <!-- LANGUAGES -->
+      <div class="mb-10">
+        <h3 class="font-semibold mb-4">Languages & Frameworks</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-badge">Python</span><span class="skill-badge">Go</span>
+          <span class="skill-badge">Java</span><span class="skill-badge">JavaScript/TypeScript</span>
+          <span class="skill-badge">React</span><span class="skill-badge">FastAPI</span>
+        </div>
+      </div>
+      <!-- CLOUD/DEVOPS -->
+      <div class="mb-10">
+        <h3 class="font-semibold mb-4">Cloud & DevOps</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-badge">AWS</span><span class="skill-badge">GCP</span>
+          <span class="skill-badge">Azure</span><span class="skill-badge">Docker</span>
+          <span class="skill-badge">Kubernetes</span><span class="skill-badge">Terraform</span>
+          <span class="skill-badge">CI/CD (GitHub&nbsp;Actions)</span><span class="skill-badge">Helm</span>
+        </div>
+      </div>
+      <!-- DATABASES -->
+      <div class="mb-10">
+        <h3 class="font-semibold mb-4">Databases & Messaging</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-badge">PostgreSQL</span><span class="skill-badge">MySQL</span>
+          <span class="skill-badge">MongoDB</span><span class="skill-badge">Redis</span>
+          <span class="skill-badge">Kafka</span><span class="skill-badge">RabbitMQ</span>
+        </div>
+      </div>
+      <!-- TOOLING -->
+      <div>
+        <h3 class="font-semibold mb-4">Tooling & Practices</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-badge">Git</span><span class="skill-badge">Linux</span>
+          <span class="skill-badge">Prometheus/Grafana</span><span class="skill-badge">OpenTelemetry</span>
+          <span class="skill-badge">TDD</span><span class="skill-badge">Agile/Scrum</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========= -->
+  <section id="projects" class="py-20">
+    <div class="max-w-6xl mx-auto px-4" data-aos="fade-up">
+      <h2 class="text-3xl font-semibold text-center mb-12">Selected Projects</h2>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Project card -->
+        <article class="project-card">
+          <img src="images/cloud-native.jpg" alt="" class="project-img">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Cloud Native WebApp</h3>
+            <p class="text-sm mb-4">Secure user-auth API on GCP with IaC and full CI/CD.</p>
+            <div class="flex flex-wrap gap-2 text-xs mb-4">
+              <span class="tech-badge">GCP</span><span class="tech-badge">Flask</span><span class="tech-badge">Terraform</span>
             </div>
-            <div class="column is-half">
-              <div class="box">
-                <form>
-                  <div class="field">
-                    <label class="label">Name</label>
-                    <div class="control">
-                      <input class="input" type="text" placeholder="Your name">
-                    </div>
-                  </div>
-                  
-                  <div class="field">
-                    <label class="label">Email</label>
-                    <div class="control">
-                      <input class="input" type="email" placeholder="Your email">
-                    </div>
-                  </div>
-                  
-                  <div class="field">
-                    <label class="label">Subject</label>
-                    <div class="control">
-                      <input class="input" type="text" placeholder="Subject">
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label class="label">Message</label>
-                    <div class="control">
-                      <textarea class="textarea" placeholder="Your message"></textarea>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <div class="control">
-                      <button class="button is-primary is-fullwidth">Send Message</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            <div class="flex gap-4">
+              <a href="https://github.com/bharathbhaskr/user-directory-gcp-terraform" target="_blank" class="action-btn">
+                <i data-feather="github" class="w-4 h-4"></i> Code
+              </a>
+              <a href="#" class="action-btn">
+                <i data-feather="external-link" class="w-4 h-4"></i> Demo
+              </a>
             </div>
           </div>
-        </div>
-      </section>
-    </section>
+        </article>
 
-    <!-- Footer -->
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      Bharath Bhaskar &copy; 2021&ndash;<script>document.write(new Date().getFullYear())</script> | <i class="fas fa-coffee"></i> & <i class="fas fa-heart"></i> in Boston, MA
-    </p>
-    <p>
-      <a href="#top">Back to Top <i class="fas fa-arrow-up"></i></a>
-    </p>
-  </div>
+        <article class="project-card">
+          <img src="images/audio-classification.jpg" alt="" class="project-img">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Distributed Audio Classifier</h3>
+            <p class="text-sm mb-4">DDP training pipeline that recognizes 264 bird species.</p>
+            <div class="flex flex-wrap gap-2 text-xs mb-4">
+              <span class="tech-badge">PyTorch</span><span class="tech-badge">Dask</span><span class="tech-badge">Librosa</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://github.com/bharathbhaskr/pytorch-audio-ddp-bird-classification" target="_blank" class="action-btn">
+                <i data-feather="github" class="w-4 h-4"></i> Code
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="images/eco-grid.jpg" alt="" class="project-img">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">EcoGrid Tycoon</h3>
+            <p class="text-sm mb-4">Interactive map analyzing ecological impact of data centers.</p>
+            <div class="flex flex-wrap gap-2 text-xs mb-4">
+              <span class="tech-badge">Go</span><span class="tech-badge">React</span><span class="tech-badge">Selenium</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://github.com/Samhith-k/data-center-ecology-map" target="_blank" class="action-btn">
+                <i data-feather="github" class="w-4 h-4"></i> Code
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========= -->
+  <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-12" data-aos="fade-up">Professional Timeline</h2>
+
+      <div class="relative border-l border-primary/50 pl-6 space-y-12" data-aos="fade-right">
+        <!-- Item -->
+        <div>
+          <span class="timeline-dot"></span>
+          <h3 class="font-semibold">Graduate Research Assistant · Northeastern University <span class="text-sm text-gray-500">(2024 – Present)</span></h3>
+          <p class="text-sm mt-2">
+            Co-designed Kubernetes-backed LLM evaluation platform; improved deployment
+            cycle time 38 % with Argo CD automation.
+          </p>
+        </div>
+        <!-- Item -->
+        <div>
+          <span class="timeline-dot"></span>
+          <h3 class="font-semibold">Software Engineer · Mphasis (FedEx Logistics) <span class="text-sm text-gray-500">(2021 – 2023)</span></h3>
+          <p class="text-sm mt-2">
+            Re-architected legacy monolith into Kafka-driven microservices; slashed response
+            latency 30 % and achieved 99.9 % uptime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BLOG ========= -->
+  <section id="blog" class="py-20">
+    <div class="max-w-5xl mx-auto px-4" data-aos="fade-up">
+      <h2 class="text-3xl font-semibold text-center mb-12">Latest Writing</h2>
+
+      <div class="grid gap-8 md:grid-cols-2">
+        <article class="blog-card">
+          <img src="serverless.jpg" alt="" class="blog-img">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">
+              <a href="blog/serverless-ci-cd.html">Serverless CI/CD: Automating AWS Lambda Releases</a>
+            </h3>
+            <p class="text-sm mb-4">Step-by-step guide to a fully managed pipeline using CodeBuild & Step Functions.</p>
+            <p class="text-xs text-gray-500">Feb 15 2025 · 8 min read</p>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="djokovic.jpg" alt="" class="blog-img">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">
+              <a href="blog/tennis-made-me-code-better.html">How Tennis Made Me a Better Developer</a>
+            </h3>
+            <p class="text-sm mb-4">Resilience on court translated to cleaner debugging off court.</p>
+            <p class="text-xs text-gray-500">Jan 28 2025 · 6 min read</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="blog/index.html" class="inline-block px-6 py-3 rounded-lg bg-primary text-white hover:bg-indigo-700">
+          View All Posts
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========= -->
+  <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-xl mx-auto px-4 text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-semibold mb-6">Let’s Build Something Great</h2>
+      <p class="mb-10">
+        Whether you have a role in mind or just want to chat about cloud
+        architecture, feel free to reach out.
+      </p>
+
+      <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="grid gap-6 md:grid-cols-2">
+          <input type="text" name="name" placeholder="Name" required class="input-field">
+          <input type="email" name="email" placeholder="Email" required class="input-field">
+        </div>
+        <input type="text" name="subject" placeholder="Subject" class="input-field">
+        <textarea name="message" rows="5" placeholder="Message" required class="input-field"></textarea>
+        <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-indigo-700">
+          Send Message
+        </button>
+      </form>
+
+      <div class="mt-10 flex justify-center gap-6 text-sm">
+        <a href="mailto:bhaskar.bh@northeastern.edu" class="contact-link">
+          <i data-feather="mail" class="w-4 h-4"></i> Email
+        </a>
+        <a href="https://linkedin.com/in/bharathbhaskar99" target="_blank" class="contact-link">
+          <i data-feather="linkedin" class="w-4 h-4"></i> LinkedIn
+        </a>
+        <a href="https://github.com/bharathbhaskr" target="_blank" class="contact-link">
+          <i data-feather="github" class="w-4 h-4"></i> GitHub
+        </a>
+        <span class="contact-link">
+          <i data-feather="map-pin" class="w-4 h-4"></i> Boston, MA
+        </span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- =====================  FOOTER  ===================== -->
+<footer class="py-6 text-center text-xs text-gray-500 dark:text-gray-400">
+  © <span id="year"></span> Bharath Bhaskar · Built with Tailwind CSS
 </footer>
-    
-    <!-- JavaScript for Navbar Toggle -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-      
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-          // Add a click event on each of them
-          $navbarBurgers.forEach( el => {
-            el.addEventListener('click', () => {
-              // Get the target from the "data-target" attribute
-              const target = el.dataset.target;
-              const $target = document.getElementById(target);
-      
-              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-              el.classList.toggle('is-active');
-              $target.classList.toggle('is-active');
-            });
-          });
-        }
-      });
-    </script>
-  </body>
+
+<!-- Feather icon activation -->
+<script>feather.replace()</script>
+
+<!-- Little helpers -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- ========== STYLE SNIPPETS ========= -->
+<style>
+  /* reusable pills */
+  .skill-badge, .tech-badge {
+    @apply bg-primary/10 text-primary dark:bg-primary/20 px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  /* cards */
+  .project-card, .blog-card {
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow hover:shadow-lg transition;
+  }
+
+  .project-img, .blog-img {
+    @apply w-full h-40 object-cover;
+  }
+
+  .action-btn {
+    @apply inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline;
+  }
+
+  /* timeline */
+  .timeline-dot {
+    @apply absolute -left-[7px] top-1 w-3 h-3 bg-primary rounded-full;
+  }
+
+  /* form */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-primary focus:border-primary text-sm;
+  }
+
+  .contact-link {
+    @apply flex items-center gap-1 hover:text-primary;
+  }
+</style>
+</body>
 </html>
