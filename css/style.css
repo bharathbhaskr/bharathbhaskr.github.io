@@ -86,7 +86,7 @@ h2 {
 
 /* Structure */
 
-jumbotron {
+.jumbotron {
   background-color: #ffffff;
 }
 
@@ -115,7 +115,7 @@ li {
 /* No media query since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { ... }
+/* Add responsive rules here if needed */
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -127,7 +127,7 @@ li {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { ... }
+/* Add responsive rules here if needed */
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { ... }
+/* Add responsive rules here if needed */
